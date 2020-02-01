@@ -30,17 +30,17 @@ function arrayToList(array: number[]) {
  * produce an array from a list
  * @param list 
  */
-function listToArray(list) {
-    let array = [];
-    let currentNode = list;
-    while (true) {
-        array.push(currentNode["value"]);
-        if (currentNode["rest"] == null) break;
-        currentNode = currentNode["rest"];
-    }
+// function listToArray(list) {
+//     let array = [];
+//     let currentNode = list;
+//     while (true) {
+//         array.push(currentNode["value"]);
+//         if (currentNode["rest"] == null) break;
+//         currentNode = currentNode["rest"];
+//     }
 
-    return array;
-}
+//     return array;
+// }
 
 /**
  * take an element and a list and creates a new list that adds the element
@@ -48,9 +48,9 @@ function listToArray(list) {
  * @param element 
  * @param list 
  */
-function prepend(element, list) {
-    return { value: element, rest: list}
-}
+// function prepend(element, list) {
+//     return { value: element, rest: list}
+// }
 
 /**
  * take a list and a number and return the element at the given position in the list
@@ -58,65 +58,65 @@ function prepend(element, list) {
  * @param list 
  * @param index 
  */
-function nth(list, index) {
-    let value = undefined;
-    let currentNode = list;
-    let counter = 0;
-    while (true) {
-        if (counter == index) {
-            value = currentNode["value"];
-            break;
-        } else if (currentNode["rest"] == null) {
-            break;
-        } else {
-            currentNode = currentNode["rest"];
-            counter += 1;
-        }
-    }
-    return value;
-}
+// function nth(list, index) {
+//     let value = undefined;
+//     let currentNode = list;
+//     let counter = 0;
+//     while (true) {
+//         if (counter == index) {
+//             value = currentNode["value"];
+//             break;
+//         } else if (currentNode["rest"] == null) {
+//             break;
+//         } else {
+//             currentNode = currentNode["rest"];
+//             counter += 1;
+//         }
+//     }
+//     return value;
+// }
 
-function nth_recursive(list, index) {
+// function nth_recursive(list, index) {
     
-    function nth_recursive_internal(list, counter) {
-        if (list["rest"] == null) {
-            return undefined;
-        } else if (counter == index) {
-            return list["value"];
-        } else {
-            counter += 1;
-            return nth_recursive_internal(list["rest"], counter);
-        }
-    }
-    return nth_recursive_internal(list, 0);
-}
+//     function nth_recursive_internal(list, counter) {
+//         if (list["rest"] == null) {
+//             return undefined;
+//         } else if (counter == index) {
+//             return list["value"];
+//         } else {
+//             counter += 1;
+//             return nth_recursive_internal(list["rest"], counter);
+//         }
+//     }
+//     return nth_recursive_internal(list, 0);
+// }
 
 
-let array = [1, 2, 3, 4, 5];
-console.log('array: ', array);
-console.log();
+// let array = [1, 2, 3, 4, 5];
+// console.log('array: ', array);
+// console.log();
 
-let list = arrayToList(array);
-console.log('list: ', list);
-console.log();
+// let list = arrayToList(array);
+// console.log('list: ', list);
+// console.log();
 
-let array_converted_to_list = listToArray(list);
-console.log('array_converted_to_list: ', array_converted_to_list);
-console.log();
+// let array_converted_to_list = listToArray(list);
+// console.log('array_converted_to_list: ', array_converted_to_list);
+// console.log();
 
-let list_prepended = prepend(0, list);
-console.log('list_prepended: ', list_prepended);
-console.log();
+// let list_prepended = prepend(0, list);
+// console.log('list_prepended: ', list_prepended);
+// console.log();
 
-let list_prepended_converted_to_array = listToArray(list_prepended);
-console.log('list_prepended_converted_to_array: ', list_prepended_converted_to_array);
-console.log();
+// let list_prepended_converted_to_array = listToArray(list_prepended);
+// console.log('list_prepended_converted_to_array: ', list_prepended_converted_to_array);
+// console.log();
 
-console.log('list: ', list);
-console.log();
+// console.log('list: ', list);
+// console.log();
 
-console.log('the third element of list: ', nth(list, 2));
-console.log();
+// console.log('the third element of list: ', nth(list, 2));
+// console.log();
 
-console.log('the third element of list(recursive): ', nth_recursive(list, 2));
-console.log();
+// console.log('the third element of list(recursive): ', nth_recursive(list, 2));
+// console.log();

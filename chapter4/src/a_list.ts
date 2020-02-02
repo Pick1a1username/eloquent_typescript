@@ -5,31 +5,31 @@ type List = {
 
 type Array = number[]
 
+export class ZeroLengthArrayError extends Error {}
+
 /**
  * build up a list structure like the one shown when given [1, 2, 3] as argument.
  * @param array 
  */
-export function arrayToList(array: number[]): List| null {
-    let beforeObj: List | null = null
-    let afterObj: List | null = null
+export function arrayToList(array: number[]): List | ZeroLengthArrayError {
     const arrayLength = array.length
 
-    if (arrayLength == 1) {
-        return { value: array[0], rest: null }
-    } else if (arrayLength == 0) {
-        return null
-    } else {
-        for (let index = arrayLength - 1; index >= 0; index -= 1) { 
-            if (index == arrayLength - 1) {
-                afterObj = { value: array[index], rest: null };
-                continue;
-            } else {
-                beforeObj = { value: array[index], rest: afterObj };
-                afterObj = beforeObj;
-            }
+    if (arrayLength == 1) return { value: array[0], rest: null }
+    if (arrayLength == 0) return new ZeroLengthArrayError()
+
+    let listedArray: List = {
+        value: array[arrayLength - 1],
+        rest: null
+    }
+
+    for (let index = arrayLength -2; index >= 0; index -= 1) {
+        listedArray = {
+            value: array[index],
+            rest: listedArray
         }
     }
-    return afterObj;
+
+    return listedArray
 }
 
 /**

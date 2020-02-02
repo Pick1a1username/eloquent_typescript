@@ -5,10 +5,13 @@ import 'mocha';
 describe('function tests',
   () => {
     it('arrayToList()', (done) => {
-      const testArray = [ 1, 2, 3 ]
-      const result = a_list.arrayToList(testArray)
+      const testArrayPass = [ 1, 2, 3 ]
+      const testArrayError: number[] = []
+      
+      const resultPass = a_list.arrayToList(testArrayPass)
+      const resultError = a_list.arrayToList(testArrayError)
 
-      expect(result).to.deep.equal(
+      expect(resultPass).to.deep.equal(
         {
           value: 1,
           rest: {
@@ -19,6 +22,8 @@ describe('function tests',
             }
           }
         })
+      
+      expect(resultError).to.be.an.instanceof(a_list.ZeroLengthArrayError)
 
       done()
     })

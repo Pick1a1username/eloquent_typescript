@@ -7,10 +7,10 @@ class IterableGroupIterator<T> {
         this.counter = 0;
     }
 
-    next(): { value?: T, done: boolean } {
+    next(): { value?: T; done: boolean } {
         if (this.counter > this.set.length - 1) return {done: true};
 
-        let value = this.set[this.counter];
+        const value = this.set[this.counter];
 
         this.counter++;
 
@@ -31,7 +31,7 @@ class IterableGroup<T> {
     }
 
     delete(value: T): void {
-        let idx = this.set.indexOf(value);
+        const idx = this.set.indexOf(value);
 
         if ( idx != -1 ) {
             this.set.splice(idx, 1);
@@ -47,7 +47,7 @@ class IterableGroup<T> {
     }
 
     static from<U>(other: U[]): IterableGroup<U> {
-        let group = new IterableGroup<U>();
+        const group = new IterableGroup<U>();
         other.forEach(element => {
             group.add(element);
         });
@@ -68,12 +68,12 @@ class IterableGroup<T> {
 
 // Test
 console.log('Creating listB...');
-let listB = [1, 2, 3, 4, 4, 5, 6, 6, 6];
+const listB = [1, 2, 3, 4, 4, 5, 6, 6, 6];
 console.log(listB);
 console.log();
 
 console.log('creating groupC...');
-let groupC = new IterableGroup();
+const groupC = new IterableGroup();
 listB.forEach(element => {
     groupC.add(element);
 });
@@ -81,7 +81,7 @@ console.log(groupC.toString());
 console.log();
 
 console.log('Iterating groupC...');
-for (let x of groupC) {
+for (const x of groupC) {
     console.log(x);
 }
 

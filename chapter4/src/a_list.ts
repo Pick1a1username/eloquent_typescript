@@ -66,23 +66,23 @@ export function prepend(element: number, list: List): List {
  * @param list 
  * @param index 
  */
-// function nth(list, index) {
-//     let value = undefined;
-//     let currentNode = list;
-//     let counter = 0;
-//     while (true) {
-//         if (counter == index) {
-//             value = currentNode["value"];
-//             break;
-//         } else if (currentNode["rest"] == null) {
-//             break;
-//         } else {
-//             currentNode = currentNode["rest"];
-//             counter += 1;
-//         }
-//     }
-//     return value;
-// }
+export function nth(list: List, index: number) {
+    let value: number | undefined = undefined;
+    let currentNode = list;
+    let counter = 0;
+    while (true) {
+        if (counter == index) {
+            value = currentNode["value"];
+            break;
+        } else if (currentNode["rest"] == null) {
+            break;
+        } else {
+            currentNode = currentNode["rest"];
+            counter += 1;
+        }
+    }
+    return value;
+}
 
 // function nth_recursive(list, index) {
     

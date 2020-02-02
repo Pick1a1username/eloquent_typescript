@@ -75,6 +75,26 @@ describe('function tests',
       const resultInRange = a_list.nth(testList, 1)
       const resultOutRange = a_list.nth(testList, 3)
 
+      expect(resultInRange).to.deep.equal(2)
+      expect(resultOutRange).to.deep.equal(undefined)
+
+      done()
+    })
+
+    it('nthRecursive()', (done) => {
+      const testList = {
+        value: 1,
+        rest: {
+          value: 2,
+          rest: {
+            value: 3,
+            rest: null
+          }
+        }
+      }
+
+      const resultInRange = a_list.nthRecursive(testList, 1)
+      const resultOutRange = a_list.nthRecursive(testList, 3)
 
       expect(resultInRange).to.deep.equal(2)
       expect(resultOutRange).to.deep.equal(undefined)

@@ -66,7 +66,7 @@ export function prepend(element: number, list: List): List {
  * @param list 
  * @param index 
  */
-export function nth(list: List, index: number) {
+export function nth(list: List, index: number): number | undefined {
     let value: number | undefined = undefined;
     let currentNode = list;
     let counter = 0;
@@ -84,20 +84,25 @@ export function nth(list: List, index: number) {
     return value;
 }
 
-// function nth_recursive(list, index) {
+/**
+ * the recursive version of nth()
+ * @param list 
+ * @param index 
+ */
+export function nthRecursive(list: List, index: number): number | undefined {
     
-//     function nth_recursive_internal(list, counter) {
-//         if (list["rest"] == null) {
-//             return undefined;
-//         } else if (counter == index) {
-//             return list["value"];
-//         } else {
-//             counter += 1;
-//             return nth_recursive_internal(list["rest"], counter);
-//         }
-//     }
-//     return nth_recursive_internal(list, 0);
-// }
+    function nthRecursiveInternal(list: List, counter: number): number | undefined {
+        if (list["rest"] == null) {
+            return undefined;
+        } else if (counter == index) {
+            return list["value"];
+        } else {
+            counter += 1;
+            return nthRecursiveInternal(list["rest"], counter);
+        }
+    }
+    return nthRecursiveInternal(list, 0);
+}
 
 
 // let array = [1, 2, 3, 4, 5];

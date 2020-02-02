@@ -2,14 +2,6 @@ import a_list  = require('../src/a_list');
 import { expect } from 'chai';
 import 'mocha';
 
-describe('First test', 
-  () => { 
-    it('should return true', () => { 
-      const result = a_list.helloTest();
-      expect(result).to.equal(true); 
-  }); 
-});
-
 describe('function tests',
   () => {
     it('arrayToList()', (done) => {

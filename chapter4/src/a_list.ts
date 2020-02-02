@@ -1,5 +1,3 @@
-export function helloTest(): true { return true; }
-
 type List = {
     value: number;
     rest: List | null;
@@ -103,33 +101,3 @@ export function nthRecursive(list: List, index: number): number | undefined {
     }
     return nthRecursiveInternal(list, 0);
 }
-
-
-// let array = [1, 2, 3, 4, 5];
-// console.log('array: ', array);
-// console.log();
-
-// let list = arrayToList(array);
-// console.log('list: ', list);
-// console.log();
-
-// let array_converted_to_list = listToArray(list);
-// console.log('array_converted_to_list: ', array_converted_to_list);
-// console.log();
-
-// let list_prepended = prepend(0, list);
-// console.log('list_prepended: ', list_prepended);
-// console.log();
-
-// let list_prepended_converted_to_array = listToArray(list_prepended);
-// console.log('list_prepended_converted_to_array: ', list_prepended_converted_to_array);
-// console.log();
-
-// console.log('list: ', list);
-// console.log();
-
-// console.log('the third element of list: ', nth(list, 2));
-// console.log();
-
-// console.log('the third element of list(recursive): ', nth_recursive(list, 2));
-// console.log();

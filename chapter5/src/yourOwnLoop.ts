@@ -5,12 +5,12 @@
  * @param updateFunction 
  * @param bodyFunction 
  */
-let loop = <T, U>(
+function loop<T, U>(
     value: T,
     testFunction: (x: T) => boolean,
     updateFunction: (x: T) => T,  // This can be improved so that I don't need to specify generics' types manually.
     bodyFunction: (x: T) => U
-) => {
+): void {
     while (testFunction(value) == true) {
         bodyFunction(value);
         value = updateFunction(value);

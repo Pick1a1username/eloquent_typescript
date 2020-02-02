@@ -1,24 +1,20 @@
-let everyLoop = (array: number[], predicateFunction: (x: number) => boolean) => {
-    let result = true;
-    for (let element of array) {
+function everyLoop(array: number[], predicateFunction: (x: number) => boolean): boolean {
+    for (const element of array) {
         if (predicateFunction(element) == false) {
             return false;
         }
     }
-    return result;
+    return true;
 };
 
 
-let everySome = (array: number[], predicateFunction: (x: number) => boolean) => {
+function everySome(array: number[], predicateFunction: (x: number) => boolean): boolean {
     return !array.some( x => {
         return !predicateFunction(x);
     });
 };
 
-let arrayA = [2, 4, 6, 8, 10];
-let arrayB = [2, 4, 7, 8, 10];
-
-let checkEven = (x: number) => {
+function checkEven(x: number): boolean {
     if (x % 2 == 0) {
         return true;
     } else {
@@ -26,6 +22,8 @@ let checkEven = (x: number) => {
     }
 }
 
+const arrayA = [2, 4, 6, 8, 10];
+const arrayB = [2, 4, 7, 8, 10];
 
 console.log("Testing everyLoop...");
 console.log("Expected Result: true");

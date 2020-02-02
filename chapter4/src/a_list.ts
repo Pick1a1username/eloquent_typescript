@@ -1,17 +1,23 @@
+export function helloTest(): true { return true; }
+
+type List = {
+    value: number;
+    rest: List | null;
+}
+
 /**
  * build up a list structure like the one shown when given [1, 2, 3] as argument.
  * @param array 
  */
-function arrayToList(array: number[]) {
-    let list = {}
-    let beforeObj = {}
-    let afterObj = {}
-    let arrayLength = array.length
+export function arrayToList(array: number[]): List| null {
+    let beforeObj: List | null = null
+    let afterObj: List | null = null
+    const arrayLength = array.length
 
     if (arrayLength == 1) {
         return { value: array[0], rest: null }
     } else if (arrayLength == 0) {
-        return {}
+        return null
     } else {
         for (let index = arrayLength - 1; index >= 0; index -= 1) { 
             if (index == arrayLength - 1) {

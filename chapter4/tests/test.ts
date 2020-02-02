@@ -10,7 +10,7 @@ describe('First test',
   }); 
 });
 
-describe('arrayToList()',
+describe('function tests',
   () => {
     it('arrayToList()', (done) => {
       const testArray = [ 1, 2, 3 ]
@@ -30,5 +30,35 @@ describe('arrayToList()',
 
       done()
     })
+
+    it('listToArray()', (done) => {
+      const testList = {
+        value: 1,
+        rest: {
+          value: 2,
+          rest: {
+            value: 3,
+            rest: null
+          }
+        }
+      }
+      const result = a_list.listToArray(testList)
+
+      expect(result).to.deep.equal([ 1, 2, 3 ])
+
+      done()
+    })
+
+    it('prepend()', (done) => {
+      const testNumber = 0
+      const testList = { value: 1, rest: null }
+
+      const result = a_list.prepend(testNumber, testList)
+
+      expect(result).to.deep.equal({ value: 0, rest: { value: 1, rest: null }})
+
+      done()
+    })
   }
 )
+

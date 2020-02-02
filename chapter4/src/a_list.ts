@@ -5,6 +5,8 @@ type List = {
     rest: List | null;
 }
 
+type Array = number[]
+
 /**
  * build up a list structure like the one shown when given [1, 2, 3] as argument.
  * @param array 
@@ -36,17 +38,17 @@ export function arrayToList(array: number[]): List| null {
  * produce an array from a list
  * @param list 
  */
-// function listToArray(list) {
-//     let array = [];
-//     let currentNode = list;
-//     while (true) {
-//         array.push(currentNode["value"]);
-//         if (currentNode["rest"] == null) break;
-//         currentNode = currentNode["rest"];
-//     }
+export function listToArray(list: List): Array {
+    const array: Array = []
+    let currentNode = list;
+    while (true) {
+        array.push(currentNode["value"]);
+        if (currentNode["rest"] == null) break;
+        currentNode = currentNode["rest"];
+    }
 
-//     return array;
-// }
+    return array;
+}
 
 /**
  * take an element and a list and creates a new list that adds the element
@@ -54,9 +56,9 @@ export function arrayToList(array: number[]): List| null {
  * @param element 
  * @param list 
  */
-// function prepend(element, list) {
-//     return { value: element, rest: list}
-// }
+export function prepend(element: number, list: List): List {
+    return { value: element, rest: list}
+}
 
 /**
  * take a list and a number and return the element at the given position in the list
